@@ -1,0 +1,48 @@
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.js"></script>
+<script type="text/javascript" src="js/colorpicker.js"></script>
+<script type="text/javascript" src="js/buildURL.js"></script>
+<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+<link href='http://fonts.googleapis.com/css?family=Monoton|Rochester|Nothing+You+Could+Do|Black+Ops+One|Cedarville+Cursive|Permanent+Marker|IM+Fell+DW+Pica+SC|Luckiest+Guy|Reenie+Beanie|Rock+Salt' rel='stylesheet' type='text/css'>
+<style type='text/css'>
+  {{ css }}
+</style>
+  <script>
+  $(document).ready(function () {
+    $('#colorpicker').ColorPicker(
+      {flat: true,
+       onChange: function (hsb, hex, rgb) {$('#logo').css("color", '#' + hex);$('#workspace').text(buildURL());}
+    });
+  });
+  </script>
+
+</head>
+<body spellcheck=false style="background-color: #d8e7ec;">
+<center>
+<select id="fonts">
+  <option value="'Monoton', cursive">Monoton</option>
+  <option value="'Rochester', cursive">Rochester</option>
+  <option value="'Nothing You Could Do', cursive">Nothing You Could Do</option>
+  <option value="'Black Ops One', cursive">Black Ops One</option>
+  <option value="'Cedarville Cursive', cursive">Cedarville</option>
+  <option value="'Permanent Marker', cursive">Permanent Marker</option>
+  <option value="'IM Fell DW Pica SC', serif">IM Fell DW Pica</option>
+  <option value="'Luckiest Guy', cursive">Luckiest Guy</option>
+  <option value="'Reenie Beanie', cursive">reenie Beanie</option>
+  <option value="'Rock Salt', cursive">Rock Salt</option>
+</select>
+<div id="colorpicker"></div>
+<div id="logo" contentEditable="true">Logo</div>
+<p id="workspace"></p>
+</center>
+<script>
+    $("select").change(function () {
+          var str = "";
+          $('#logo').css("fontFamily", $("select option:selected").val());
+          $('#workspace').text(buildURL());
+        });
+</script>
+
+</body>
+</html>

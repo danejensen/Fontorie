@@ -1,0 +1,70 @@
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.js"></script>
+<script type="text/javascript" src="js/colorpicker.js"></script>
+<script type="text/javascript" src="js/buildURL.js"></script>
+<script type="text/javascript" src="js/jquery.tagsinput.js"></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+<link href='http://fonts.googleapis.com/css?family=Monoton|Rochester|Nothing+You+Could+Do|Black+Ops+One|Cedarville+Cursive|Permanent+Marker|IM+Fell+DW+Pica+SC|Luckiest+Guy|Reenie+Beanie|Rock+Salt' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+<style type='text/css'>
+  #logo{font-family: 'Monoton', cursive;font-size: 200px;}
+</style>
+  <script>
+  $(document).ready(function () {
+    $('#colorpicker').ColorPicker(
+      {flat: true,
+       onChange: function (hsb, hex, rgb) {$('#logo').css("color", '#' + hex);$('#workspace').text(buildURL());}
+    });
+    AddTS = function(tag) {
+      var classname = "ts" + tag.replace(/ /g,"").replace(/#/g,"");
+      $("<style type='text/css'> ." + classname + "{ text-shadow: " + tag + "; } </style>").appendTo("head")
+      $('#logo').addClass(classname);
+      $('#workspace').text(buildURL());
+    }
+    RemoveTS = function(tag) {
+      var classname = "ts" + tag.replace(/ /g,"").replace(/#/g,"");
+      $('#logo').removeClass(classname);
+      $('#workspace').text(buildURL());
+    }
+
+    $('#tags_1').tagsInput({'height':'80px','width':'500px','unique':true,'defaultText':'add text shadow: 0px 0px 0px #ffffff',
+       'onAddTag':function(tag){AddTS(tag);},
+       'onRemoveTag':function(tag){RemoveTS(tag);},
+    });
+  });
+  </script>
+</head>
+<body spellcheck=false style="background-color: #d8e7ec;">
+<center>
+<select id="fonts">
+  <option value="'Monoton', cursive">Monoton</option>
+  <option value="'Rochester', cursive">Rochester</option>
+  <option value="'Nothing You Could Do', cursive">Nothing You Could Do</option>
+  <option value="'Black Ops One', cursive">Black Ops One</option>
+  <option value="'Cedarville Cursive', cursive">Cedarville</option>
+  <option value="'Permanent Marker', cursive">Permanent Marker</option>
+  <option value="'IM Fell DW Pica SC', serif">IM Fell DW Pica</option>
+  <option value="'Luckiest Guy', cursive">Luckiest Guy</option>
+  <option value="'Reenie Beanie', cursive">reenie Beanie</option>
+  <option value="'Rock Salt', cursive">Rock Salt</option>
+</select>
+<div id="colorpicker"></div>
+<br/>
+<div id="logo" class="remove" contentEditable="true">Logo</div>
+<p id="workspace"></p>
+<input id="tags_1" type="text" class="tags" value="foo,bar,baz,roffle" />
+</center>
+<script>
+    $("select").change(function () {
+          var str = "";
+          $('#logo').css("fontFamily", $("select option:selected").val());
+          $('#workspace').text(buildURL());
+        });
+</script>
+
+</body>
+</html>
