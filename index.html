@@ -149,13 +149,15 @@
          $('input[name=url]').val(buildURL());
          $('#seecss').text(buildCSS());
     });
-    onChangeTag();
-
-
-
     $('#addTSButton').click(function(){
       var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px #fff";
       $("#tags_1").addTag(tag);
+      $( "#xoffset" ).slider( "option", "value", 0 );
+      $( "#yoffset" ).slider( "option", "value", 0 );
+      $( "#blur" ).slider( "option", "value", 0 );
+      $( "#amount1" ).val(0);
+      $( "#amount2" ).val(0);
+      $( "#amount3" ).val(0);
     });
     $('#seecss').hide();
     $('#fillcss').click(function(){if($('#fillcss').text()=='See CSS'){$('#seecss').show();$('#fillcss').text('Hide CSS');}else{$('#seecss').hide();$('#fillcss').text('See CSS');}});
@@ -163,6 +165,7 @@
        'onAddTag':function(tag){onChangeTag();},
        'onRemoveTag':function(tag){onChangeTag();$('#workspace').text(buildURL());},
     });
+    onChangeTag();
   });
   </script>
 </head>
@@ -346,6 +349,7 @@
 	</div>
 </div>
 <script>
+    
     $("select#fonts").change(function () {
           //var str = "";
           //$("<link href='http://fonts.googleapis.com/css?family=" + $("select option:selected").text() + "' rel='stylesheet' type='text/css'>").appendTo("head");
