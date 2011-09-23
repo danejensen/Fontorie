@@ -114,6 +114,28 @@
 			});
 		});
 	});
+
+    onChangeTag = function(){
+      $('#logo').css('textShadow', "none");
+      var textS = ""
+      $.each($("span.tag span"),function(index,item){textS = textS + item.innerHTML.replace(/&nbsp;/g,"")+",";})
+      textS = textS.substring(0, textS.length - 1);
+      $('#logo').css('textShadow', textS);
+      $('#workspace').text(buildURL());
+      $('#link').attr('href',"/" + buildURL());
+      $('#link').text("www.fontorie.com/" + buildURL());
+      $('input[name=css]').val(buildCSS());
+      $('input[name=url]').val(buildURL());
+      $('#seecss').text(buildCSS());
+    }
+
+    tempTS = function(tag) {
+      var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px #fff";
+      var textS = tag+",";
+      $.each($("span.tag span"),function(index,item){textS = textS + item.innerHTML.replace(/&nbsp;/g,"")+",";})
+      textS = textS.substring(0, textS.length - 1);
+      $('#logo').css('textShadow', textS);
+    }
 	</script>
 
   <script>
@@ -127,65 +149,19 @@
          $('input[name=url]').val(buildURL());
          $('#seecss').text(buildCSS());
     });
-
-    lastTag="";
-    tempTS = function() {
-      var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px #fff";
-      (lastTag) ? RemoveTS(lastTag):false;
-      AddTS(tag);
-      lastTag = tag;
-    }
+    onChangeTag();
 
 
-    AddTS = function(tag) {
-      var classname = "ts" + tag.replace(/ /g,"").replace(/#/g,"");
-      $("<p class='" + classname + "'>" + tag + "</p>").appendTo("body").hide();
-      $('#logo').addClass(classname);
-      ($('#logo').css('textShadow') === "none")? $('#logo').css('textShadow', tag): $('#logo').css('textShadow', $('#logo').css('textShadow')+", "+tag);
-      $('#workspace').text(buildURL());
-      $('#link').attr('href',"/" + buildURL());
-      $('#link').text("www.fontorie.com/" + buildURL());
-      $('input[name=css]').val(buildCSS());
-      $('input[name=url]').val(buildURL());
-      $('#seecss').text(buildCSS());
-    }
-    RemoveTS = function(tag) {
-      $('#logo').css('textShadow', "none");
-      var classname = "ts" + tag.replace(/ /g,"").replace(/#/g,"");
-      $('#logo').removeClass(classname);
-      $('p.'+classname).remove();
-      if ($('#logo').attr('class')){
-        var classList = $('#logo').attr('class').split(/\s+/);
-        var textS = "";
-        $.each( classList, function(index, item){
-          textS = textS + $("p."+item).text() + ","
-        });
-        $.each($("span.tag span"),function(index,item){textS = textS + item.innerHTML.replace(/&nbsp;/g,"")+",";})
-        textS = textS.substring(0, textS.length - 1);
-        $('#logo').css('textShadow', textS);
-      }
-      $('#workspace').text(buildURL());
-      $('#link').attr('href',"/" + buildURL());
-      $('#link').text("www.fontorie.com/" + buildURL());
-      $('input[name=css]').val(buildCSS());
-      $('input[name=url]').val(buildURL());
-      $('#seecss').text(buildCSS());
-    }
-    AddTS("5px 5px 0px #ffffff");
-    AddTS("-5px 5px 0px #ffffff");
-    AddTS("5px -5px 0px #ffffff");
-    AddTS("-5px -5px 0px #ffffff");
+
     $('#addTSButton').click(function(){
       var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px #fff";
       $("#tags_1").addTag(tag);
-      lastTag="";
-      //AddTS(tag);
     });
     $('#seecss').hide();
     $('#fillcss').click(function(){if($('#fillcss').text()=='See CSS'){$('#seecss').show();$('#fillcss').text('Hide CSS');}else{$('#seecss').hide();$('#fillcss').text('See CSS');}});
     $('#tags_1').tagsInput({'height':'250px','width':'180px','unique':true,'defaultText':'add: 0px 0px 0px #ffffff',
-       'onAddTag':function(tag){AddTS(tag);},
-       'onRemoveTag':function(tag){RemoveTS(tag);$('#workspace').text(buildURL());},
+       'onAddTag':function(tag){onChangeTag();},
+       'onRemoveTag':function(tag){onChangeTag();$('#workspace').text(buildURL());},
     });
   });
   </script>
@@ -227,7 +203,7 @@
 <div id="blur"  style="width:200px;"></div>
 <br/>
 <div id="addTSButton" style="border: 1px solid #a5d24a; -moz-border-radius:2px; -webkit-border-radius:2px; display: block; float: left; padding: 5px; text-decoration:none; background: #cde69c; color: #638421; margin-right: 5px; margin-bottom:5px;font-family: helvetica;  font-size:13px;">Add Text Shadow</div>
-			<input id="tags_1" type="text" class="tags" value="5px 5px 0px #ffffff, -5px -5px 0px #ffffff, -5px 5px 0px #ffffff, 5px -5px 0px #ffffff" /> 
+			<input id="tags_1" type="text" class="tags" value="5px 5px 0px #ffffff" /> 
 			</center>
 		</div>
 		<div class="tencol last">
