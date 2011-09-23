@@ -1,0 +1,52 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+	body {
+		
+	}
+
+    .header {
+        background: url(../images/topstrip.png) repeat-x center;
+        height: 100px;
+    }
+    
+    .header .logo {
+        width: 212px;
+        height: 303px;
+        background: url(../images/logo.png) no-repeat;
+    }
+    
+    .header .logo h1 {
+        /* color: #5DD7A0; */
+        color: transparent;
+        font-size: 0;
+        margin-left: -1000px;
+    }
+    
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		
+	}
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}

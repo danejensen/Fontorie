@@ -1,0 +1,59 @@
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.js"></script>
+<script type="text/javascript" src="js/buildURL.js"></script>
+<script type="text/javascript" src="js/jquery.tagsinput.js"></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+<script type="text/javascript" src="js/farbtastic.js"></script>
+ 
+
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+	
+	<!-- Your styles -->
+	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
+	
+	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+	<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+<link rel="stylesheet" href="css/farbtastic.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Loved+by+the+King|Love+Ya+Like+A+Sister|Shadows+Into+Light|Waiting+for+the+Sunrise|La+Belle+Aurore|Kristi|Annie+Use+Your+Telescope|The+Girl+Next+Door|Permanent+Marker|Give+You+Glory|Sue+Ellen+Francisco|Just+Me+Again+Down+Here|Coming+Soon|Unkempt|Kranky|Cabin+Sketch:700|Calligraffitti|Dawning+of+a+New+Day|Schoolbell|Rock+Salt|Swanky+and+Moo+Moo|Reenie+Beanie|Gloria+Hallelujah|Covered+By+Your+Grace|Miltonian|Zeyada' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Nova+Oval|Orbitron|Sniglet:800|VT323|Slackey|Smokum|Allan:700|Mountains+of+Christmas|Black+Ops+One|Walter+Turncoat|Ruslan+Display|UnifrakturMaguntia|Chewy|Irish+Grover|Sunshiney|Bangers|Luckiest+Guy|Monofett|Monoton|Short+Stack|Megrim' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lobster+Two|Yellowtail|Aclonica|Philosopher|Over+the+Rainbow|Astloch|Meddon|Merienda+One|Rochester|Delius+Swash+Caps|Montez|Cedarville+Cursive|Amaranth|Redressed|Vibur|Fontdiner+Swanky|Tangerine|Calligraffitti|Dawning+of+a+New+Day|Homemade+Apple|Crafty+Girls|Pacifico|League+Script|Leckerli+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Forum|Bigshot+One|Holtwood+One+SC|IM+Fell+DW+Pica+SC|PT+Serif+Caption|Old+Standard+TT|Stardos+Stencil|Six+Caps|Josefin+Slab|Special+Elite|IM+Fell+English+SC|Buda:300|Ubuntu|Syncopate|Wire+One|Modern+Antiqua' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+<style type='text/css'>
+  #logo{font-family: 'Lobster Two', cursive;font-size: 200px;color: #4996ee;}
+  .fontsize{font-size: 200px;}
+  #fontorie{
+	color: abaae9;
+	font-family: 'Lobster Two', cursive;
+	font-size:70px;
+	text-shadow: rgb(255, 255, 255) 3px 3px 0px, rgb(255, 255, 255) -3px 3px 0px, rgb(255, 255, 255) 3px -3px 0px, rgb(255, 255, 255) -3px -3px 0px;
+	}
+a { text-decoration:none;}
+</style>
+</head>
+<body spellcheck=false style="background-color: #d8e7ec;">
+<div class="container header"> 
+	<div class="row"> 
+		<div class="tencol">
+		<div id="fontorie"><a href="/" style="text-decoration:none;color: abaae9;font-family: 'Lobster Two', cursive;font-size:70px;text-shadow: rgb(255, 255, 255) 3px 3px 0px, rgb(255, 255, 255) -3px 3px 0px, rgb(255, 255, 255) 3px -3px 0px, rgb(255, 255, 255) -3px -3px 0px;">Fontorie</a></div>
+		</div>
+		<div class="twocol last">
+		<div style="height:30px;"></div>
+		<a href="/examples">Examples</a>
+		</div>
+	</div> <!--/row--> 
+</div> <!--/container--> 
+<div class="container">
+	{% for logo in query %}
+	<div class="row">
+		<div class="twocol"></div>
+		<div class="eightcol fontsize" ><a href="{{logo.url}}" style=" {{logo.css}} ">{{logo.word}}</a></div>
+		<div class="twocol last"></div>
+	</div>
+	{% endfor %}
+</body>
+</html>

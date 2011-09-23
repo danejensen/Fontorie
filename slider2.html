@@ -1,0 +1,62 @@
+<html>
+<head>
+<!--jquery-ui-1.8.16.custom.css-->
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/black-tie/jquery-ui.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.js"></script>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+	<style>
+	#demo-frame > div.demo { padding: 10px !important; };
+	</style>
+	<script>
+	$(function() {
+		$( "#xoffset" ).slider({
+			min: -20,
+			max: 20,
+			value: 0,
+			slide: function( event, ui ) {
+				$( "#amount1" ).val( ui.value );
+			}
+		});
+		$( "#amount1" ).val( $( "#xoffset" ).slider( "value" ) );
+		$( "#yoffset" ).slider({
+			min: -20,
+			max: 20,
+			value: 0,
+			slide: function( event, ui ) {
+				$( "#amount2" ).val( ui.value );
+			}
+		});
+		$( "#amount2" ).val( $( "#yoffset" ).slider( "value" ) );
+		$( "#blur" ).slider({
+			min: -20,
+			max: 20,
+			value: 0,
+			slide: function( event, ui ) {
+				$( "#amount3" ).val( ui.value );
+			}
+		});
+		$( "#amount3" ).val( $( "#blur" ).slider( "value" ) );
+	});
+	</script>
+</head>
+<body>
+<div class="demo">
+
+<p>
+	<label for="amount1">X-Offset:</label>
+	<input type="text" id="amount1" style="width:20px; border:0; color:#f6931f; font-weight:bold;" />
+
+	<label for="amount2">Y-Offset:</label>
+	<input type="text" id="amount2" style="width:20px; border:0; color:#f6931f; font-weight:bold;" />
+	
+	<label for="amount3">Blur:</label>
+	<input type="text" id="amount3" style=" width:20px; border:0; color:#f6931f; font-weight:bold;" />
+</p>
+<div id="xoffset"></div>
+<br/>
+<div id="yoffset"></div>
+<br/>
+<div id="blur" ></div>
+</div><!-- End demo -->
+</body>
+</html>

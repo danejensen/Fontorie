@@ -1,0 +1,18 @@
+<link href='http://fonts.googleapis.com/css?family=Forum|Bigshot+One|Holtwood+One+SC|IM+Fell+DW+Pica+SC|PT+Serif+Caption|Old+Standard+TT|Stardos+Stencil|Six+Caps|Josefin+Slab|Special+Elite|IM+Fell+English+SC|Buda:300|Ubuntu|Syncopate|Wire+One|Modern+Antiqua' rel='stylesheet' type='text/css'>
+
+font-family: 'Forum', cursive;
+font-family: 'Bigshot One', cursive;
+font-family: 'Holtwood One SC', serif;
+font-family: 'IM Fell DW Pica SC', serif;
+font-family: 'PT Serif Caption', serif;
+font-family: 'Old Standard TT', serif;
+font-family: 'Stardos Stencil', cursive;
+font-family: 'Six Caps', sans-serif;
+font-family: 'Josefin Slab', serif;
+font-family: 'Special Elite', cursive;
+font-family: 'IM Fell English SC', serif;
+font-family: 'Buda', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Syncopate', sans-serif;
+font-family: 'Wire One', sans-serif;
+font-family: 'Modern Antiqua', cursive;

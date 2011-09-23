@@ -1,0 +1,62 @@
+<html>
+<head>
+<!--jquery-ui-1.8.16.custom.css-->
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/black-tie/jquery-ui.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.js"></script>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+	<script>
+	$(function() {
+		// setup master volume
+		$( "#master" ).slider({
+			value: 60,
+			orientation: "horizontal",
+			range: "min",
+			animate: true
+		});
+		// setup graphic EQ
+		$( "#eq > span" ).each(function() {
+			// read initial values from markup and remove that
+			var value = parseInt( $( this ).text(), 10 );
+			$( this ).empty().slider({
+				value: value,
+				step: 1,
+				animate: true,
+				orientation: "vertical"
+				slide: function( event, ui ) {
+					$( "#amount" ).val( ui.value );
+				}
+			
+			});
+			$( "#amount" ).val( $( "#slider-vertical" ).slider( "value" ) );
+		});
+	});
+	</script>
+
+	<style>
+	#demo-frame > div.demo { padding: 10px !important; }
+	#eq span {
+		height:120px; float:left; margin:15px
+	}
+	</style>
+</head>
+<body>
+<p class="ui-state-default ui-corner-all" style="padding:4px;margin-top:4em;">
+	<span class="ui-icon ui-icon-signal" style="float:left; margin:-2px 5px 0 0;"></span>
+	Graphic EQ
+</p>
+<p>
+	<label for="amount">Volume:</label>
+	<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
+</p>
+
+<div id="eq">
+	<span>88</span>
+	<span>77</span>
+	<span>55</span>
+	<span>33</span>
+	<span>40</span>
+	<span>45</span>
+	<span>70</span>
+</div>
+</body>
+</html>
