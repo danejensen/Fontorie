@@ -121,3 +121,9 @@ var buildURL = function(){
 var buildCSS = function(){
   return "color: " + cssColorToHex($('#logo').css('color'))+ "; "+"font-family: " + $('#logo').css('fontFamily') + "; " + "text-shadow: " + $('#logo').css('textShadow')+";";
 }
+
+var buildHTMLCSS = function(){
+  var ff = $('#logo').css('fontFamily').split(',')[0].replace(/'/g,"").replace(/ /g, "+");
+  var link = "<link href='http://fonts.googleapis.com/css?family=" + ff + "' rel='stylesheet' type='text/css'>";
+  return link + "\n<style>\n\t" + " #logo{ " + buildCSS() + "} \n" + "</style>"; 
+}

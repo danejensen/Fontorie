@@ -93,28 +93,7 @@
     left:220px;
   }
 </style>
-	<script>
-	$(function() {
-		// setup master volume
-		$( "#master" ).slider({
-			value: 60,
-			orientation: "horizontal",
-			range: "min",
-			animate: true
-		});
-		// setup graphic EQ
-		$( "#eq > span" ).each(function() {
-			// read initial values from markup and remove that
-			var value = parseInt( $( this ).text(), 10 );
-			$( this ).empty().slider({
-				value: value,
-				range: "min",
-				animate: true,
-				orientation: "vertical"
-			});
-		});
-	});
-
+<script>
     onChangeTag = function(){
       $('#logo').css('textShadow', "none");
       var textS = ""
@@ -126,17 +105,17 @@
       $('#link').text("www.fontorie.com/" + buildURL());
       $('input[name=css]').val(buildCSS());
       $('input[name=url]').val(buildURL());
-      $('#seecss').text(buildCSS());
+      $('#seecss').text(buildHTMLCSS());
     }
 
     tempTS = function(tag) {
-      var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px #fff";
-      var textS = tag+",";
-      $.each($("span.tag span"),function(index,item){textS = textS + item.innerHTML.replace(/&nbsp;/g,"")+",";})
-      textS = textS.substring(0, textS.length - 1);
+      var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px " + $("input#color").val();
+      var textS = "";
+      $.each($("span.tag span"),function(index,item){textS = textS + item.innerHTML.replace(/&nbsp;/g,"")+",";});
+      textS = textS + tag;
       $('#logo').css('textShadow', textS);
     }
-	</script>
+</script>
 
   <script>
   $(document).ready(function () {
@@ -147,10 +126,13 @@
          $('#link').text("www.fontorie.com/" + buildURL());
          $('input[name=css]').val(buildCSS());
          $('input[name=url]').val(buildURL());
-         $('#seecss').text(buildCSS());
+         $('#seecss').text(buildHTMLCSS());
     });
+$('#picker').farbtastic('#color');
+$("input#color").change(function(){tempTS();});
+$("input#color").click(function(){$('#picker').toggle();});
     $('#addTSButton').click(function(){
-      var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px #fff";
+      var tag = $( "#xoffset" ).slider( "value" )+"px "+$( "#yoffset" ).slider( "value" )+"px "+$( "#blur" ).slider( "value" )+"px " + $("input#color").val();
       $("#tags_1").addTag(tag);
       $( "#xoffset" ).slider( "option", "value", 0 );
       $( "#yoffset" ).slider( "option", "value", 0 );
@@ -158,10 +140,11 @@
       $( "#amount1" ).val(0);
       $( "#amount2" ).val(0);
       $( "#amount3" ).val(0);
+      $("#picker").hide();
     });
     $('#seecss').hide();
     $('#fillcss').click(function(){if($('#fillcss').text()=='See CSS'){$('#seecss').show();$('#fillcss').text('Hide CSS');}else{$('#seecss').hide();$('#fillcss').text('See CSS');}});
-    $('#tags_1').tagsInput({'height':'250px','width':'180px','unique':true,'defaultText':'add: 0px 0px 0px #ffffff',
+    $('#tags_1').tagsInput({'height':'150px','width':'180px','unique':true,'defaultText':'add: 0px 0px 0px #ffffff',
        'onAddTag':function(tag){onChangeTag();},
        'onRemoveTag':function(tag){onChangeTag();$('#workspace').text(buildURL());},
     });
@@ -205,7 +188,11 @@
 <br/>
 <div id="blur"  style="width:200px;"></div>
 <br/>
-<div id="addTSButton" style="border: 1px solid #a5d24a; -moz-border-radius:2px; -webkit-border-radius:2px; display: block; float: left; padding: 5px; text-decoration:none; background: #cde69c; color: #638421; margin-right: 5px; margin-bottom:5px;font-family: helvetica;  font-size:13px;">Add Text Shadow</div>
+<form action="">
+  <div class="form-item"><label for="color">Text Shadow Color:</label><input type="text" id="color" name="color" value="#fff" /></div><div style="display: none;" id="picker"></div>
+</form>
+<br/>
+<div id="addTSButton" style="border: 1px solid #a5d24a; -moz-border-radius:2px; -webkit-border-radius:2px; display: block; float: left; padding: 5px; text-decoration:none; background: #cde69c; color: #638421; margin-right: 5px; margin-bottom:5px;font-family: helvetica;  font-size:13px;"> + Add Text Shadow</div>
 			<input id="tags_1" type="text" class="tags" value="5px 5px 0px #ffffff" /> 
 			</center>
 		</div>
@@ -344,12 +331,14 @@
 </select>
 </div>
 </div>
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffontorie.com&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 </div>
 		</div>
 	</div>
 </div>
 <script>
-    
+    $("input#color").change(function(){tempTS();});
     $("select#fonts").change(function () {
           //var str = "";
           //$("<link href='http://fonts.googleapis.com/css?family=" + $("select option:selected").text() + "' rel='stylesheet' type='text/css'>").appendTo("head");
@@ -358,7 +347,7 @@
           $('#link').text("www.fontorie.com/" + buildURL());
          $('input[name=css]').val(buildCSS());
          $('input[name=url]').val(buildURL());
-         $('#seecss').text(buildCSS());
+         $('#seecss').text(buildHTMLCSS());
         });
     $("select#cartoony").change(function () {
           $('#logo').css("fontFamily", $("select#cartoony option:selected").val());
@@ -366,7 +355,7 @@
           $('#link').text("www.fontorie.com/" + buildURL());
          $('input[name=css]').val(buildCSS());
          $('input[name=url]').val(buildURL());
-         $('#seecss').text(buildCSS());
+         $('#seecss').text(buildHTMLCSS());
         });
     $("select#curvey").change(function () {
           $('#logo').css("fontFamily", $("select#curvey option:selected").val());
@@ -374,7 +363,7 @@
           $('#link').text("www.fontorie.com/" + buildURL());
          $('input[name=css]').val(buildCSS());
          $('input[name=url]').val(buildURL());
-         $('#seecss').text(buildCSS());
+         $('#seecss').text(buildHTMLCSS());
         });
     $("select#standardy").change(function () {
           $('#logo').css("fontFamily", $("select#standardy option:selected").val());
@@ -382,7 +371,7 @@
           $('#link').text("www.fontorie.com/" + buildURL());
          $('input[name=css]').val(buildCSS());
          $('input[name=url]').val(buildURL());
-         $('#seecss').text(buildCSS());
+         $('#seecss').text(buildHTMLCSS());
         });
     $("#logo").keyup(function(){ $('input[name=word]').val($("#logo").text());});
 </script>
