@@ -38,21 +38,33 @@ a { text-decoration:none;}
 <body spellcheck=false style="background-color: #d8e7ec;">
 <div class="container header"> 
 	<div class="row"> 
-		<div class="tencol">
+		<div class="sixcol">
 		<div id="fontorie"><a href="/" style="text-decoration:none;color: abaae9;font-family: 'Lobster Two', cursive;font-size:70px;text-shadow: rgb(255, 255, 255) 3px 3px 0px, rgb(255, 255, 255) -3px 3px 0px, rgb(255, 255, 255) 3px -3px 0px, rgb(255, 255, 255) -3px -3px 0px;">Fontorie</a></div>
+		</div>
+		<div class="fourcol">
+		<div style="height:30px;"></div>
+		<iframe src="http://www.facebook.com/plugins/like.php?href=fontorie.com&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 		</div>
 		<div class="twocol last">
 		<div style="height:30px;"></div>
 		<a href="/examples">Examples</a>
 		</div>
 	</div> <!--/row--> 
-</div> <!--/container--> 
+</div> <!--/container-->
 <div class="container">
+	<div class="row">
+		<div class="onecol"></div>
+		<div class="eightcol fontsize" ><a href="/42bcff0effd217kkf5ac7ffppfffd217uuf5ac7ffzzf" style=" font-family: 'Ubuntu',cursive;font-size: 200px;color: #42bcff;text-shadow: 5px 5px 0px #ffd217,10px 10px 0px #5ac7ff,15px 15px 0px #ffd217,20px 20px 0px #5ac7ff; ">GAMES</a></div>
+		<div class="threecol last">
+<div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/12750/azcarbon_2_1_0_VERT"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+		</div>
+	</div>
 	{% for logo in query %}
 	<div class="row">
-		<div class="twocol"></div>
+		<div class="onecol"></div>
 		<div class="eightcol fontsize" ><a href="{{logo.url}}" style=" {{logo.css}} ">{{logo.word}}</a></div>
-		<div class="twocol last"></div>
+		<div class="threecol last"></div>
 	</div>
 	{% endfor %}
 </body>
