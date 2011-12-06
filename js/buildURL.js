@@ -105,6 +105,29 @@ var parseTS = function(ts){
   return url;
 }
 
+var parseTStoTag = function(ts){
+  var tag = ""
+  var color = ""
+  var tagA = [];
+  a = ts.split("(")
+  for(var i=1; i<a.length;i++){
+    cp = a[i].split(")");
+    c = cp[0].split(",");
+    p = cp[1].split("px");
+    for(var j=0; j<c.length;j++){
+      color = color + parseInt(c[j]).toString(16);
+    }
+    color="#"+color;
+    for(var j=0; j<3;j++){
+      tag = tag + parseInt(p[j]) + "px ";
+    }
+    tag = tag + color;
+    tagA.push(tag);
+    color = tag = "";
+  }
+  return tagA;
+}
+
 var cssColorToHex = function(colorStr){
     var hex = '';
     $.each(colorStr.substring(4).split(','), function(i, str){
