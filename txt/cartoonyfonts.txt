@@ -1,0 +1,23 @@
+<link href='http://fonts.googleapis.com/css?family=Nova+Oval|Orbitron|Sniglet:800|VT323|Slackey|Smokum|Allan:700|Mountains+of+Christmas|Black+Ops+One|Walter+Turncoat|Ruslan+Display|UnifrakturMaguntia|Chewy|Irish+Grover|Sunshiney|Bangers|Luckiest+Guy|Monofett|Monoton|Short+Stack|Megrim' rel='stylesheet' type='text/css'>
+
+font-family: 'Nova Oval', cursive;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Sniglet', cursive;
+font-family: 'VT323', cursive;
+font-family: 'Slackey', cursive;
+font-family: 'Smokum', cursive;
+font-family: 'Allan', cursive;
+font-family: 'Mountains of Christmas', cursive;
+font-family: 'Black Ops One', cursive;
+font-family: 'Walter Turncoat', cursive;
+font-family: 'Ruslan Display', cursive;
+font-family: 'UnifrakturMaguntia', cursive;
+font-family: 'Chewy', cursive;
+font-family: 'Irish Grover', cursive;
+font-family: 'Sunshiney', cursive;
+font-family: 'Bangers', cursive;
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Monofett', cursive;
+font-family: 'Monoton', cursive;
+font-family: 'Short Stack', cursive;
+font-family: 'Megrim', cursive;

@@ -1,0 +1,26 @@
+<link href='http://fonts.googleapis.com/css?family=Lobster+Two|Yellowtail|Aclonica|Philosopher|Over+the+Rainbow|Astloch|Meddon|Merienda+One|Rochester|Delius+Swash+Caps|Montez|Cedarville+Cursive|Amaranth|Redressed|Vibur|Fontdiner+Swanky|Tangerine|Calligraffitti|Dawning+of+a+New+Day|Homemade+Apple|Crafty+Girls|Pacifico|League+Script|Leckerli+One' rel='stylesheet' type='text/css'>
+
+font-family: 'Lobster Two', cursive;
+font-family: 'Yellowtail', cursive;
+font-family: 'Aclonica', sans-serif;
+font-family: 'Philosopher', sans-serif;
+font-family: 'Over the Rainbow', cursive;
+font-family: 'Astloch', cursive;
+font-family: 'Meddon', cursive;
+font-family: 'Merienda One', cursive;
+font-family: 'Rochester', cursive;
+font-family: 'Delius Swash Caps', cursive;
+font-family: 'Montez', cursive;
+font-family: 'Cedarville Cursive', cursive;
+font-family: 'Amaranth', sans-serif;
+font-family: 'Redressed', cursive;
+font-family: 'Vibur', cursive;
+font-family: 'Fontdiner Swanky', cursive;
+font-family: 'Tangerine', cursive;
+font-family: 'Calligraffitti', cursive;
+font-family: 'Dawning of a New Day', cursive;
+font-family: 'Homemade Apple', cursive;
+font-family: 'Crafty Girls', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'League Script', cursive;
+font-family: 'Leckerli One', cursive;
